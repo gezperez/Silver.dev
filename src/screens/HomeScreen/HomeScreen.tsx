@@ -1,13 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import styles from './styles';
+import { HomeScreenProps } from '~/navigation/interfaces/home';
+import { Color } from '~/utils';
 
-type HomeScreen = {};
+const HomeScreen = ({ navigation }: HomeScreenProps) => {
+  const handleOnPress = () => navigation.navigate('Info');
 
-const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
+
+      <Button
+        title="Navigate Info Screen"
+        onPress={handleOnPress}
+        color={Color.SECONDARY}
+      />
     </View>
   );
 };

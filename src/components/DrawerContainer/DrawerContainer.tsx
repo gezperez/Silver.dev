@@ -8,9 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useAppContext } from '~/hooks';
 import Navigator from '~/navigation/Navigator';
-import { Color } from '~/utils';
 import { DrawerButton } from './components';
-import { RootStackParamList } from '~/navigation/interfaces/navigation';
+import styles from './styles';
 
 const { width, height } = Dimensions.get('window');
 
@@ -72,8 +71,6 @@ const DrawerContainer = () => {
     }
   };
 
-  const handleButtonPress = (screen: keyof RootStackParamList) => {};
-
   useEffect(() => {
     if (showDrawer) {
       handleShowDrawer();
@@ -84,48 +81,15 @@ const DrawerContainer = () => {
 
   return (
     <Animated.View
-      style={[
-        {
-          flex: 1,
-          backgroundColor: Color.PRIMARY,
-        },
-        containerStyle,
-        borderRadiusStyle,
-      ]}
+      style={[styles.mainContainer, containerStyle, borderRadiusStyle]}
     >
-      <View
-        style={{
-          position: 'absolute',
-          left: 0,
-          paddingVertical: height / 7,
-          width: width / 2,
-          height: height / 1.5,
-          alignItems: 'center',
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: '900',
-            color: Color.WHITE,
-            marginBottom: height / 16,
-          }}
-        >
-          Beka
-        </Text>
-        <DrawerButton screen="Home" />
-        <DrawerButton screen="Contacts" />
+      <View style={styles.container}>
+        <Text style={styles.title}>Beka</Text>
+        <DrawerButton screen="Start" />
       </View>
       <TouchableWithoutFeedback onPress={handleHideDrawer}>
         <Animated.View
-          style={[
-            {
-              flex: 1,
-              overflow: 'hidden',
-            },
-            transformStyle,
-            borderRadiusStyle,
-          ]}
+          style={[styles.navigatorContainer, transformStyle, borderRadiusStyle]}
         >
           <Navigator />
         </Animated.View>

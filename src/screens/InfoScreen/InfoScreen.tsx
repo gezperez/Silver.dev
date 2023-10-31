@@ -1,13 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import styles from './styles';
+import { InfoScreenProps } from '~/navigation/interfaces/home';
+import { Color } from '~/utils';
 
-type InfoScreenProps = {};
+const InfoScreen = ({ navigation }: InfoScreenProps) => {
+  const handleOnPress = () => navigation.navigate('Settings');
 
-const InfoScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Information Screen</Text>
+      <Text>Home Screen</Text>
+
+      <Button
+        title="Navigate Settings Screen"
+        onPress={handleOnPress}
+        color={Color.SECONDARY}
+      />
     </View>
   );
 };
