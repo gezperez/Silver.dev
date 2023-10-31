@@ -46,6 +46,10 @@ yarn ios
 
 https://github.com/gezperez/Silver.dev/assets/50116922/5d218325-b958-4b5e-a7c1-4de2f146f2f6
 
+Tech Stack
+
+The app is using React Navigation v6, with a custom made drawer to be able to show the screens content on top of the drawer content. The bottom tab has two stacks and the Home stack has two more screens to be able to navigate inside the stack. For the animations Ive used Reanimated v3. The drawer animation consists of two parts, a translateY animation to move down both the drawer and screen contents, and pivot point on the top right corner of the screen content to rotate it.
+
 
 
 
